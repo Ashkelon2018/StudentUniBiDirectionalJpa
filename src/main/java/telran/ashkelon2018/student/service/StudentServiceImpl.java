@@ -49,8 +49,22 @@ public class StudentServiceImpl implements StudentService {
 
 	@Override
 	public Iterable<Student> getStudentsByGroupId(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Group group = groupRepository.findById(id).orElse(null);
+		if (group == null) {
+			return null;
+		}
+		//return studentRepository.findByGroupId(id);
+		return group.getStudents();
+	}
+
+	@Override
+	@Transactional
+	public boolean removeGroup(int id) {
+		if (groupRepository.existsById(id)) {
+			groupRepository.deleteById(id);
+			return true;
+		}
+		return false;
 	}
 
 }

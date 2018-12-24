@@ -11,5 +11,7 @@ public interface StudentService {
 	Student findStudent(int id);
 	
 	Iterable<Student> getStudentsByGroupId(int id);
+	
+	boolean removeGroup(int id);
 
 }

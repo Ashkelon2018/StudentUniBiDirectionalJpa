@@ -1,5 +1,6 @@
 package telran.ashkelon2018.student.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
